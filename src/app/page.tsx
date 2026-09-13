@@ -1,5 +1,5 @@
 import Banner from "@/components/Banner";
-import Card from "@/components/Card";
+import CardPanel from "@/components/CardPanel";
 
 const venues = [
   { venueName: "The Bloom Pavilion", imgSrc: "/img/bloom.jpg" },
@@ -12,11 +12,7 @@ export default function Home() {
     <div className="flex min-h-[calc(100vh-3rem)] flex-col items-center justify-center bg-gray-50 p-10">
       <main className="flex w-full max-w-4xl flex-col items-center gap-8">
         <Banner />
-        <div className="flex w-full flex-wrap items-stretch justify-center gap-6">
-          {venues.map((v) => (
-            <Card key={v.venueName} venueName={v.venueName} imgSrc={v.imgSrc} />
-          ))}
-        </div>
+        <CardPanel venues={venues} />
       </main>
     </div>
   );
