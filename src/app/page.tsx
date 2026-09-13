@@ -1,67 +1,21 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Banner from "@/components/Banner";
+import Card from "@/components/Card";
+
+const venues = [
+  { venueName: "The Bloom Pavilion", imgSrc: "/img/bloom.jpg" },
+  { venueName: "Spark Space", imgSrc: "/img/sparkspace.jpg" },
+  { venueName: "The Grand Table", imgSrc: "/img/grandtable.jpg" },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    <div className="flex min-h-[calc(100vh-3rem)] flex-col items-center justify-center bg-gray-50 p-10">
+      <main className="flex w-full max-w-4xl flex-col items-center gap-8">
+        <Banner />
+        <div className="flex w-full flex-wrap items-stretch justify-center gap-6">
+          {venues.map((v) => (
+            <Card key={v.venueName} venueName={v.venueName} imgSrc={v.imgSrc} />
+          ))}
         </div>
       </main>
     </div>
